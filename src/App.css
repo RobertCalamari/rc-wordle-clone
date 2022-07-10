@@ -34,12 +34,14 @@
 }
 
 .keyboard-letter:hover{
-  background: rgb(150, 150, 150);
+  /* background: rgb(150, 150, 150); */
+  opacity: .8;
   cursor: pointer;
 }
 
 .new-game-button:hover{
-  background: rgb(80, 194, 76);
+  /* background: rgb(80, 194, 76); */
+  opacity: .8;
   cursor: pointer;
 }
 

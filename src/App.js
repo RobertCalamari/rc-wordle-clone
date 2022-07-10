@@ -58,13 +58,11 @@ function App() {
 
     }else if(currentLetter === 'ENTER'){
       if(guessesMax <= currentRow){
-        setIsGameOver(true);
-        if(currentRow != 10){
-          setFinalMessage(solution + ' - New Word');
-        }
+        
       }
       if(currentWord.length === 5){
         if(allWords.includes(currentWord.toLowerCase())){
+
           let counter = solution;
           let colorarr = ['-','-','-','-','-'];
           let greenarr = [];
@@ -146,6 +144,14 @@ function App() {
             setIsGameOver(true);
             setCurrentRow(10);
             setFinalMessage('You Win! New Word');
+          }
+
+          
+          if(guessesMax <= currentRow){
+            setIsGameOver(true);
+            if(currentRow != 10){
+              setFinalMessage(solution + ' - New Word');
+            }
           }
 
         }else{
