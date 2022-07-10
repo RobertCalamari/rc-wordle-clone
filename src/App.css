@@ -1,0 +1,182 @@
+.keyboard-container{
+  width: 100%;
+  max-width: 475px;
+}
+
+.keyboard-letter{
+  display: flex;
+  border: white 1px solid;
+  font-size: 1.5rem;
+  height: 50px;
+  width: 35px;
+  background: rgb(111, 111, 111);
+  border-radius: 4px;
+  margin: 2px;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-game-button{
+  border: rgb(4, 112, 4) 1px solid;
+  background: rgb(4, 112, 4);
+  border-radius: 4px;
+  margin: 2px;
+  justify-content: center;
+  align-items: center;
+  width: 189px;
+  font-size: 1.2rem;
+  height: 79px;
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.keyboard-letter:hover{
+  background: rgb(150, 150, 150);
+  cursor: pointer;
+}
+
+.new-game-button:hover{
+  background: rgb(80, 194, 76);
+  cursor: pointer;
+}
+
+
+.keyboard-row{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.row-letter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: rgb(194, 194, 194) 2px solid;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  background: rgb(57, 57, 57);
+}
+
+.guesses-row{
+  display:flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.guesses-container{
+  display:flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.App{
+  margin: 5px;;
+}
+
+.smaller-font{
+  font-size: 1.0rem;
+  width: 55px;
+}
+
+.letter-used{
+  background:rgb(40, 40, 40);
+}
+
+.no-word-popup{
+  padding: 0 10px 0 10px;
+  height: 50px;
+  background: gray;
+  position: absolute;
+  top: 11%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+
+  animation-duration: 3s;
+  transition-timing-function:ease-in-out;
+  animation-fill-mode: both;
+  animation-name: fadeInOut;
+}
+
+.wiggle{
+  animation-duration: 0.5s;
+  transition-timing-function:linear;
+  animation-fill-mode: both;
+  animation-name: wiggle;
+}
+
+
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+  }
+ }
+
+ @keyframes wiggle {
+  0% {
+    transform: translateX(0px);
+  }
+
+  20% {
+    transform: translateX(-5px);
+  }
+
+  35% {
+    transform: translateX(5px);
+  }
+  
+  50% {
+    transform: translateX(-5px);
+  }
+
+  65% {
+    transform: translateX(5px);
+  }
+  
+  80% {
+    transform: translateX(-5px);
+  }
+
+  80% {
+    transform: translateX(5px);
+  }
+
+  95% {
+    transform: translateX(0px);
+  }
+
+ }
+
+ @media only screen and (max-width: 550px) {
+  .keyboard-letter{
+    height: 42px;
+    width: 29px;
+    font-size: 1.3rem;
+    
+  }
+
+  .smaller-font {
+    width: 48px;
+    font-size: 0.9rem;
+  }
+
+ }
