@@ -23,6 +23,7 @@ function App() {
   const [currentRow, setCurrentRow] = useState(0);
   const [wiggleOn, setWiggleOn] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [finalMessage, setFinalMessage] = useState('New Word');
   const [score, setScore] = useState(0);
   const [usedLetters, setUsedLetters] = useState([]);
 
@@ -58,15 +59,43 @@ function App() {
     }else if(currentLetter === 'ENTER'){
       if(guessesMax <= currentRow){
         setIsGameOver(true);
+        if(currentRow != 10){
+          setFinalMessage(solution + ' - New Word');
+        }
       }
       if(currentWord.length === 5){
         if(allWords.includes(currentWord.toLowerCase())){
           let counter = solution;
           let colorarr = ['-','-','-','-','-'];
+          let greenarr = [];
+          let yellowarr = [];
+          let grayarr = [];
+
+          grayarr = [];
+          for(let i in usedLetters[0]){
+            grayarr[grayarr.length] = usedLetters[0][i];
+          }
+          for(let i in usedLetters[1]){
+            yellowarr[yellowarr.length] = usedLetters[1][i];
+          }
+          for(let i in usedLetters[2]){
+            greenarr[greenarr.length] = usedLetters[2][i];
+          }
+
+          for(let i in currentWord){
+            if(grayarr.includes(currentWord[i])){
+            }else{
+              grayarr.push(currentWord[i]);
+            }
+          }
   
           for(let letter in currentWord){
             if(currentWord[letter] === counter[letter]){
               colorarr[letter] = 'g';
+              if(greenarr.includes(currentWord[letter])){
+              }else{
+                greenarr.push(currentWord[letter]);
+              }
               counter = [...counter];
               counter[letter] = '-';
               counter = counter.join('');
@@ -82,6 +111,10 @@ function App() {
   
               }else{
                 colorarr[letter] = 'y';
+                if(yellowarr.includes(currentWord[letter])){
+                }else{
+                  yellowarr.push(currentWord[letter]);
+                }
                 counter = [...counter];
                 counter[counterindex] = '-';
                 counter = counter.join('');
@@ -101,21 +134,9 @@ function App() {
   
           setCurrentRow(currentRow+1);
 
-          temparr = [];
-          for(let i in usedLetters){
-              temparr[temparr.length] = usedLetters[i];
-          }
+          console.log(grayarr,yellowarr,greenarr);
 
-          for(let i in currentWord){
-            if(temparr.includes(currentWord[i])){
-
-            }else{
-              temparr.push(currentWord[i]);
-
-            }
-          }
-
-          setUsedLetters(temparr);
+          setUsedLetters([grayarr,yellowarr,greenarr]);
           setCurrentletter('');
           setCurrentWord('');
 
@@ -124,6 +145,7 @@ function App() {
             setScore(score+1);
             setIsGameOver(true);
             setCurrentRow(10);
+            setFinalMessage('You Win! New Word');
           }
 
         }else{
@@ -202,7 +224,7 @@ function App() {
       <br />
 
       <div className='new-game-button noselect' style={isGameOver === false ? {display:'none'} : {display:'flex'}} onClick={()=>newWord()}>
-        New Word
+        {finalMessage}
       </div>
       
     </div>

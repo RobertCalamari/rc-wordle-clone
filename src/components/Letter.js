@@ -14,10 +14,26 @@ function Letter({letter, setCurrentletter, usedLetters}){
 
     }
 
-    for(let i in usedLetters){
-        if(usedLetters[i] === letter){
-            classInfo += ' letter-used';
+    let addtoinfo = '';
+
+    for(let i in usedLetters[0]){
+        if(usedLetters[0][i] === letter){
+            addtoinfo = ' cgrey';
         }
+    }
+    for(let i in usedLetters[1]){
+        if(usedLetters[1][i] === letter){
+            addtoinfo = ' cyellow';
+        }
+    }
+    for(let i in usedLetters[2]){
+        if(usedLetters[2][i] === letter){
+            addtoinfo = ' cgreen';
+        }
+    }
+
+    if(addtoinfo != ''){
+        classInfo += addtoinfo;
     }
 
     return(

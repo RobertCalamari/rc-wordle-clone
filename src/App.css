@@ -82,6 +82,18 @@
   width: 55px;
 }
 
+.cgreen{
+  background: rgb(28, 121, 51);
+}
+
+.cyellow{
+  background: rgb(198, 150, 58);
+}
+
+.cgrey{
+  background:rgb(40, 40, 40);
+}
+
 .letter-used{
   background:rgb(40, 40, 40);
 }
